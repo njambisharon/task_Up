@@ -2,7 +2,7 @@ from sqlalchemy import Column ,Integer ,String ,ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
 
-class Space(Base):
+class User(Base):
     __tablename__ = "users"
 
     id= Column(Integer,primary_key= True,index=True)
@@ -11,4 +11,5 @@ class Space(Base):
     password= Column(String,nullable=False)
 
     tasks = relationship("Task",back_populates="user")
-    spaces = relationship("space",back_populates="user")
+    spaces = relationship("Space",back_populates="user")
+    reminders= relationship("Reminder",back_populates="user")
