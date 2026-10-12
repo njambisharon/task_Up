@@ -1,15 +1,15 @@
-from pydantic import BaseModel
-from typing import Optional
+from pydantic import BaseModel, ConfigDict
 
 
 class SpaceCreate(BaseModel):
     name: str
-    description: Optional [str] = None
+    description: str | None = None
 
-class  SpaceResponse(BaseModel):
-    id: int 
+
+class SpaceResponse(BaseModel):
+    id: int
     name: str
-    description: Optional[str]
+    description: str | None = None
     user_id: int
-class Config:
-    from_attributes = True    
+
+    model_config = ConfigDict(from_attributes=True)

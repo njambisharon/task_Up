@@ -1,5 +1,4 @@
-from pydantic import BaseModel
-from typing import Optional
+from pydantic import BaseModel, ConfigDict
 
 
 class TaskCreate(BaseModel):
@@ -8,26 +7,22 @@ class TaskCreate(BaseModel):
     status: str = "pending"
     priority: str
     space_id: int
-    
+
+
 class TaskUpdate(BaseModel):
-
-    title: Optional[str] = None
-    description: Optional[str] = None
-    status: Optional[str] = None
-    priority: Optional[str] = None
-
+    title: str | None = None
+    description: str | None = None
+    status: str | None = None
+    priority: str | None = None
 
 
 class TaskResponse(BaseModel):
-
     id: int
     title: str
-    description: Optional[str] = None
+    description: str | None = None
     status: str
     priority: str
     user_id: int
-    space_id: Optional[int] = None
+    space_id: int | None = None
 
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

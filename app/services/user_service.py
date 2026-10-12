@@ -1,35 +1,8 @@
 from sqlalchemy.orm import Session
 
-from models.user import User
-from core.security import hash_password, verify_password
-
-
-def create_user(db: Session, data):
-    existing_user = (
-        db.query(User)
-        .filter(User.email == data.email)
-        .first()
-    )
-
-    if existing_user:
-        raise ValueError("Email is already registered")
-
-    user = User(
-        username=data.username,
-        email=data.email,
-        password=hash_password(data.password)
-    )
-
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-
-    return user
-from sqlalchemy.orm import Session
-
-from models.user import User
-from schemas.user import UserCreate
-from core.auth import hash_password, verify_password
+from app.core.security import hash_password, verify_password
+from app.models.user import User
+from app.schemas.user import UserCreate
 
 
 def get_user(db: Session, user_id: int):

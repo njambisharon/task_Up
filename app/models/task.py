@@ -1,6 +1,7 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from database import Base
+
+from app.database import Base
 
 
 class Task(Base):
@@ -14,11 +15,8 @@ class Task(Base):
     priority = Column(String)
 
     user_id = Column(Integer, ForeignKey("users.id"))
-    space_id = Column(Integer, ForeignKey("spaces.id"),nullable= True)
+    space_id = Column(Integer, ForeignKey("spaces.id"), nullable=True)
 
-    user = relationship("User",back_populates="tasks")
-
-    space = relationship("Space",back_populates="tasks")
-
-    reminders = relationship("Reminder", back_populates="task",cascade="all, delete"
-    )
+    user = relationship("User", back_populates="tasks")
+    space = relationship("Space", back_populates="tasks")
+    reminders = relationship("Reminder", back_populates="task", cascade="all, delete")
