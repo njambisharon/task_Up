@@ -1,6 +1,6 @@
 # TaskUp — Task Management API
 
-TaskUp is a backend application built with **FastAPI** and **PostgreSQL** to provide API functionality for a task management system. The project focuses on building a structured backend that can be tested, maintained, and deployed to the cloud.
+TaskUp is a backend application built with FastAPI and PostgreSQL to provide API functionality for a task management system. The project focuses on building a structured backend that can be tested, maintained, and deployed to the cloud.
 
 ## Features
 
