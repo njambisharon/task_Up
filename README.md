@@ -144,14 +144,5 @@ Potential improvements include:
 - Database migrations and improved deployment workflows.
 - Continuous integration and deployment.
 
-## Author
-
-**Sharon Njambi**
-
-Software Engineering Student | Backend Development
-
-GitHub: [@njambisharon](https://github.com/njambisharon)
-
----
 
 *This project is part of my journey in software engineering, with a focus on building reliable backend applications and learning how to deploy them to production.*
